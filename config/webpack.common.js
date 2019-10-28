@@ -1,8 +1,8 @@
-const { CleanWebpackPlugin } = require("clean-webpack-plugin");
-const CopyWebpackPlugin = require("copy-webpack-plugin");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-const PATHS = require("./paths");
+const PATHS = require('./paths');
 
 // To re-use webpack configuration across templates,
 // CLI maintains a common webpack configuration file - `webpack.common.js`.
@@ -10,26 +10,43 @@ const PATHS = require("./paths");
 // in template's `config` folder
 module.exports = {
   entry: {
-    app: PATHS.src + "/app.js",
-    background: PATHS.src + "/background.js"
+    app: PATHS.src,
+    background: PATHS.src + '/background.js'
   },
   output: {
     // the build folder to output bundles and assets in.
     path: PATHS.build,
     // the filename template for entry chunks
-    filename: "[name].js"
+    filename: '[name].js'
+  },
+  resolve: {
+    alias: {
+      svelte: PATHS.modules + '/svelte'
+    },
+    extensions: ['.mjs', '.js', '.svelte'],
+    mainFields: ['svelte', 'browser', 'module', 'main']
   },
   module: {
     rules: [
-      // Check for images imported in .js files and
+      {
+        test: /\.(html|svelte)$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'svelte-loader',
+          options: {
+            emitCss: true,
+            hotReload: true
+          }
+        }
+      },
       {
         test: /\.(png|jpe?g|gif)$/i,
         use: [
           {
-            loader: "file-loader",
+            loader: 'file-loader',
             options: {
-              outputPath: "images",
-              name: "[name].[ext]"
+              outputPath: 'images',
+              name: '[name].[ext]'
             }
           }
         ]
@@ -45,10 +62,12 @@ module.exports = {
       }
     ]),
     new HtmlWebpackPlugin({
-      title: "Hanzi xiaobai",
-      meta: {
-        viewport: "width=device-width, initial-scale=1, shrink-to-fit=no"
-      }
+      title: 'Hanzi xiaobai',
+      inject: false,
+      template: require('html-webpack-template'),
+      appMountId: 'root',
+      lang: 'en',
+      mobile: true
     })
   ]
 };
