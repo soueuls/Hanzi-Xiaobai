@@ -1,13 +1,13 @@
-const devMode = process.env.NODE_ENV === "development";
+const devMode = process.env.NODE_ENV === 'development';
 
 module.exports = {
   plugins: {
-    "postcss-import": {},
-    "postcss-preset-env": {},
+    'postcss-import': {},
+    'postcss-preset-env': {},
     tailwindcss: {},
-    "@fullhuman/postcss-purgecss": !devMode
+    '@fullhuman/postcss-purgecss': !devMode
       ? {
-          content: ["./public/**/*.html", "./src/**/*.js"],
+          content: ['./src/**/*.svelte'],
           defaultExtractor: content => content.match(/[\w-/:]+(?<!:)/g) || []
         }
       : false,
