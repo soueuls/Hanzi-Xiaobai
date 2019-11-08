@@ -1,6 +1,6 @@
 <script>
   import { createEventDispatcher } from "svelte";
-  import { fade, fly } from "svelte/transition";
+  import { fly } from "svelte/transition";
 
   const dispatch = createEventDispatcher();
 
@@ -14,13 +14,7 @@
   }
 </script>
 
-<style type="type/postcss">
-  input[type="checkbox"] {
-    position: absolute;
-    top: -9999px;
-    left: -9999px;
-  }
-
+<style type="postcss">
   input:checked + label {
     @apply bg-green-400;
   }
@@ -63,7 +57,12 @@
   </h1>
   <div class="w-full flex justify-around">
     {#each [...Array(6).keys()].slice(1) as value, i}
-      <input id="hsk-{value}" type="checkbox" bind:group={choices} {value} />
+      <input
+        id="hsk-{value}"
+        class="invisible"
+        type="checkbox"
+        bind:group={choices}
+        {value} />
       <label
         in:fly={{ x: -200, delay: 150 * i, duration: 500 }}
         for="hsk-{value}"
@@ -73,7 +72,10 @@
     {/each}
   </div>
   {#if valid}
-    <button transition:fly|local={{ y: 100 }} class="button" on:click={submit}>
+    <button
+      transition:fly|local={{ y: 100 }}
+      class="button"
+      on:click={() => submit()}>
       Let's start!
     </button>
   {/if}

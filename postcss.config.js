@@ -1,16 +1,17 @@
-const devMode = process.env.NODE_ENV === 'development';
+const purgecss = require('@fullhuman/postcss-purgecss');
+
+const production = process.env.NODE_ENV === 'production';
 
 module.exports = {
-  plugins: {
-    'postcss-import': {},
-    'postcss-preset-env': {},
-    tailwindcss: {},
-    '@fullhuman/postcss-purgecss': !devMode
-      ? {
-          content: ['./src/**/*.svelte'],
-          defaultExtractor: content => content.match(/[\w-/:]+(?<!:)/g) || []
-        }
-      : false,
-    cssnano: !devMode ? {} : false
-  }
+  plugins: [
+    require('postcss-import'),
+    require('postcss-preset-env'),
+    require('tailwindcss'),
+    require('autoprefixer'),
+    production &&
+      purgecss({
+        content: ['./src/**/*.svelte', './src/**/*.html'],
+        defaultExtractor: content => content.match(/[A-Za-z0-9-_:/]+/g) || []
+      })
+  ]
 };

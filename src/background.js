@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 // With background scripts you can communicate extension files.
 // For more information on background script,

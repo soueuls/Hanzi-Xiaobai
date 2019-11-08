@@ -7,6 +7,12 @@
     // save choices in chrome.storage
     hskChoices = [...choices];
   }
+
+  function toto() {
+    console.log(chrome.storage);
+  }
+
+  toto();
 </script>
 
 <div class="h-screen bg-indigo-600">
