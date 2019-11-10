@@ -12,6 +12,7 @@ const postcss = require('rollup-plugin-postcss');
 const svelte = require('rollup-plugin-svelte');
 const autoPreprocess = require('svelte-preprocess');
 const html = require('rollup-plugin-bundle-html');
+const json = require('rollup-plugin-json');
 
 const PATHS = require('./paths');
 
@@ -44,6 +45,7 @@ module.exports = {
       filename: 'index.html',
       dest: PATHS.build
     }),
+    json(),
     clear({
       targets: [PATHS.build]
     }),

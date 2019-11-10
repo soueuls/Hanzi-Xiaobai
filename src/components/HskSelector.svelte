@@ -2,10 +2,10 @@
   import { createEventDispatcher } from "svelte";
   import { fly } from "svelte/transition";
 
-  const dispatch = createEventDispatcher();
-
   export let choices = [];
   $: valid = choices.length > 0;
+
+  const dispatch = createEventDispatcher();
 
   function submit() {
     if (choices.length > 0) {
@@ -56,7 +56,7 @@
     Which HSK level do you want to practice?
   </h1>
   <div class="w-full flex justify-around">
-    {#each [...Array(6).keys()].slice(1) as value, i}
+    {#each [...Array(7).keys()].slice(1) as value, i}
       <input
         id="hsk-{value}"
         class="invisible"
