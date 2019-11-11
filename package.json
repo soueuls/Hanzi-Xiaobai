@@ -4,12 +4,13 @@
   "description": "My Chrome Extension",
   "private": true,
   "scripts": {
-    "start": "rollup --config config/rollup.config.js --watch",
-    "build": "NODE_ENV=production rollup --config config/rollup.config.js"
+    "start": "cross-env NODE_ENV=development rollup --config config/rollup.config.js --watch",
+    "build": "cross-env NODE_ENV=production rollup --config config/rollup.config.js"
   },
   "devDependencies": {
     "@fullhuman/postcss-purgecss": "^1.3.0",
     "chokidar": "^3.3.0",
+    "cross-env": "^6.0.3",
     "cssnano": "^4.1.10",
     "postcss": "^7.0.21",
     "postcss-import": "^12.0.1",
@@ -26,7 +27,8 @@
     "rollup-plugin-postcss": "^2.0.3",
     "rollup-plugin-svelte": "^5.1.0",
     "rollup-plugin-terser": "^5.1.2",
-    "svelte-preprocess": "^3.2.2"
+    "svelte-preprocess": "^3.2.2",
+    "unixify": "^1.0.0"
   },
   "dependencies": {
     "svelte": "^3.12.1",

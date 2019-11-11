@@ -1,4 +1,5 @@
 const path = require('path');
+const unixify = require('unixify');
 
 const conditional = require('rollup-plugin-conditional');
 const notify = require('rollup-plugin-notify');
@@ -26,7 +27,12 @@ module.exports = {
   plugins: [
     resolve(),
     copy({
-      targets: [{ src: path.join(PATHS.public, '*'), dest: PATHS.build }]
+      targets: [
+        {
+          src: unixify(path.join(PATHS.public, '*')),
+          dest: unixify(PATHS.build)
+        }
+      ]
     }),
     postcss({
       extract: true,
@@ -47,7 +53,8 @@ module.exports = {
     }),
     json(),
     clear({
-      targets: [PATHS.build]
+      targets: [unixify(PATHS.build)],
+      watch: true
     }),
     conditional(isProduction, [terser()]),
     conditional(!isProduction, [notify()])
