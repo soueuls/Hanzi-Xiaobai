@@ -1,4 +1,5 @@
 <script>
+  import Header from "./Header.svelte";
   import Loading from "./Loading.svelte";
   import HskSelector from "./HskSelector.svelte";
   import HanziDrawer from "./HanziDrawer.svelte";
@@ -30,6 +31,7 @@
 </script>
 
 <div class="h-screen bg-indigo-600">
+  <Header />
   <div class="w-full md:w-4/6 h-full mx-auto flex justify-center items-center">
     {#await promise}
       <Loading />

@@ -1,35 +1,36 @@
-const path = require('path');
-const unixify = require('unixify');
+const path = require("path");
+const unixify = require("unixify");
 
-const conditional = require('rollup-plugin-conditional');
-const notify = require('rollup-plugin-notify');
-const resolve = require('rollup-plugin-node-resolve');
+const conditional = require("rollup-plugin-conditional");
+const notify = require("rollup-plugin-notify");
+const resolve = require("rollup-plugin-node-resolve");
 
-const copy = require('rollup-plugin-copy');
-const clear = require('rollup-plugin-clear');
-const { terser } = require('rollup-plugin-terser');
+const copy = require("rollup-plugin-copy");
+const clear = require("rollup-plugin-clear");
+const { terser } = require("rollup-plugin-terser");
 
-const postcss = require('rollup-plugin-postcss');
-const svelte = require('rollup-plugin-svelte');
-const autoPreprocess = require('svelte-preprocess');
-const html = require('rollup-plugin-bundle-html');
-const json = require('rollup-plugin-json');
+const postcss = require("rollup-plugin-postcss");
+const svelte = require("rollup-plugin-svelte");
+const autoPreprocess = require("svelte-preprocess");
+const html = require("rollup-plugin-bundle-html");
+const json = require("rollup-plugin-json");
+const url = require("rollup-plugin-url");
 
-const PATHS = require('./paths');
+const PATHS = require("./paths");
 
-const isProduction = process.env.NODE_ENV === 'production';
+const isProduction = process.env.NODE_ENV === "production";
 
 module.exports = {
   input: {
-    app: path.join(PATHS.src, 'index.js'),
-    background: path.join(PATHS.src, 'background.js')
+    app: path.join(PATHS.src, "index.js"),
+    background: path.join(PATHS.src, "background.js")
   },
   plugins: [
     resolve(),
     copy({
       targets: [
         {
-          src: unixify(path.join(PATHS.public, '*')),
+          src: unixify(path.join(PATHS.public, "*")),
           dest: unixify(PATHS.build)
         }
       ]
@@ -44,14 +45,15 @@ module.exports = {
         postcss: true
       }),
       dev: !isProduction,
-      css: css => css.write(path.join(PATHS.build, 'components.css'))
+      css: css => css.write(path.join(PATHS.build, "components.css"))
     }),
     html({
-      template: path.join(PATHS.src, 'template.html'),
-      filename: 'index.html',
+      template: path.join(PATHS.src, "template.html"),
+      filename: "index.html",
       dest: PATHS.build
     }),
     json(),
+    url(),
     clear({
       targets: [unixify(PATHS.build)],
       watch: true
@@ -61,7 +63,7 @@ module.exports = {
   ],
   output: {
     dir: PATHS.build,
-    format: 'esm',
+    format: "esm",
     sourcemap: true
   },
   watch: {

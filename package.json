@@ -27,6 +27,7 @@
     "rollup-plugin-postcss": "^2.0.3",
     "rollup-plugin-svelte": "^5.1.0",
     "rollup-plugin-terser": "^5.1.2",
+    "rollup-plugin-url": "^3.0.0",
     "svelte-preprocess": "^3.2.2",
     "unixify": "^1.0.0"
   },
