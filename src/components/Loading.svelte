@@ -1,95 +1,73 @@
-<svg
-  width="200px"
-  height="200px"
-  xmlns="http://www.w3.org/2000/svg"
-  viewBox="0 0 100 100"
-  preserveAspectRatio="xMidYMid"
-  class="lds-pacman"
-  style="background: none;">
-  <g style="display:block">
-    <circle cx="54.5449" cy="50" r="4" fill="#68D391">
-      <animate
-        attributeName="cx"
-        calcMode="linear"
-        values="95;35"
-        keyTimes="0;1"
-        dur="1"
-        begin="-0.67s"
-        repeatCount="indefinite" />
-      <animate
-        attributeName="fill-opacity"
-        calcMode="linear"
-        values="0;1;1"
-        keyTimes="0;0.2;1"
-        dur="1"
-        begin="-0.67s"
-        repeatCount="indefinite" />
-    </circle>
-    <circle cx="74.9449" cy="50" r="4" fill="#68D391">
-      <animate
-        attributeName="cx"
-        calcMode="linear"
-        values="95;35"
-        keyTimes="0;1"
-        dur="1"
-        begin="-0.33s"
-        repeatCount="indefinite" />
-      <animate
-        attributeName="fill-opacity"
-        calcMode="linear"
-        values="0;1;1"
-        keyTimes="0;0.2;1"
-        dur="1"
-        begin="-0.33s"
-        repeatCount="indefinite" />
-    </circle>
-    <circle cx="94.7449" cy="50" r="4" fill="#68D391">
-      <animate
-        attributeName="cx"
-        calcMode="linear"
-        values="95;35"
-        keyTimes="0;1"
-        dur="1"
-        begin="0s"
-        repeatCount="indefinite" />
-      <animate
-        attributeName="fill-opacity"
-        calcMode="linear"
-        values="0;1;1"
-        keyTimes="0;0.2;1"
-        dur="1"
-        begin="0s"
-        repeatCount="indefinite" />
-    </circle>
-  </g>
-  <g transform="translate(-15 0)">
-    <path
-      d="M50 50L20 50A30 30 0 0 0 80 50Z"
-      fill="#434190"
-      transform="rotate(0.38268 50 50)">
-      <animateTransform
-        attributeName="transform"
-        type="rotate"
-        calcMode="linear"
-        values="0 50 50;45 50 50;0 50 50"
-        keyTimes="0;0.5;1"
-        dur="1s"
-        begin="0s"
-        repeatCount="indefinite" />
-    </path>
-    <path
-      d="M50 50L20 50A30 30 0 0 1 80 50Z"
-      fill="#434190"
-      transform="rotate(-0.38268 50 50)">
-      <animateTransform
-        attributeName="transform"
-        type="rotate"
-        calcMode="linear"
-        values="0 50 50;-45 50 50;0 50 50"
-        keyTimes="0;0.5;1"
-        dur="1s"
-        begin="0s"
-        repeatCount="indefinite" />
-    </path>
-  </g>
-</svg>
+<style type="postcss">
+  .chopstick {
+    position: absolute;
+    width: 11px;
+    height: 15vh;
+    background-color: rgb(247, 223, 196);
+    border: 2px solid black;
+    border-radius: 80px 80px 10px 80px;
+    box-shadow: inset 2px 0 0 1px rgb(233, 156, 68);
+  }
+
+  .chopstick::before {
+    content: "";
+    position: absolute;
+    width: 7px;
+    height: 3vh;
+    background-color: rgb(243, 233, 239);
+    border-bottom: 2px solid black;
+    box-shadow: inset 2px 0 0 1px rgb(201, 188, 188);
+  }
+
+  .chopstick.one {
+    animation: move 2.5s infinite ease-in-out,
+      chop 2.5s infinite ease-in-out alternate;
+  }
+
+  .chopstick.two {
+    transform: rotate(10deg);
+    animation: move 2.5s infinite ease-in-out;
+  }
+
+  @keyframes move {
+    0% {
+      left: 0;
+      top: -200px;
+    }
+    25% {
+      left: -80px;
+      top: -100px;
+    }
+    50% {
+      left: 0;
+      top: 0px;
+    }
+    75% {
+      left: 80px;
+      top: -100px;
+    }
+    100% {
+      left: 0;
+      top: -200px;
+    }
+  }
+
+  @keyframes chop {
+    0%,
+    50% {
+      transform: rotate(40deg);
+    }
+    55% {
+      transform: rotate(5deg);
+    }
+    60%,
+    100% {
+      transform: rotate(40deg);
+    }
+  }
+</style>
+
+<div class="relative">
+  <div class="chopstick one" />
+  <div class="chopstick two" />
+</div>

@@ -1,4 +1,5 @@
 <script>
+  import Loading from "./Loading.svelte";
   import HskSelector from "./HskSelector.svelte";
   import HanziDrawer from "./HanziDrawer.svelte";
 
@@ -18,17 +19,21 @@
         resolve(hskChoices);
       }
 
-      chrome.storage.sync.get(["hsk"], result => {
-        hskChoices = result.hsk || [];
-        resolve(hskChoices);
-      });
+      setTimeout(() => {
+        chrome.storage.sync.get(["hsk"], result => {
+          hskChoices = result.hsk || [];
+          resolve(hskChoices);
+        });
+      }, 2000);
     });
   }
 </script>
 
 <div class="h-screen bg-indigo-600">
   <div class="w-full md:w-4/6 h-full mx-auto flex justify-center items-center">
-    {#await promise then choices}
+    {#await promise}
+      <Loading />
+    {:then choices}
       {#if choices.length}
         <HanziDrawer hskLevels={choices.map(String)} />
       {:else}
