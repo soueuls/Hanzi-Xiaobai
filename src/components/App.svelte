@@ -16,21 +16,18 @@
 
   function getHskChoices() {
     return new Promise(resolve => {
-      if (hskChoices && hskChoices.length) {
-        resolve(hskChoices);
-      }
-
       setTimeout(() => {
         chrome.storage.sync.get(["hsk"], result => {
-          hskChoices = result.hsk || [];
-          resolve(hskChoices);
+          resolve(
+            hskChoices && hskChoices.length ? hskChoices : result.hsk || []
+          );
         });
-      }, 2000);
+      }, Math.floor(Math.random() * Math.floor(6) * 500));
     });
   }
 </script>
 
-<div class="h-screen bg-indigo-600">
+<div class="flex flex-col h-screen bg-indigo-600">
   <Header />
   <div class="w-full md:w-4/6 h-full mx-auto flex justify-center items-center">
     {#await promise}
