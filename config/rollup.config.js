@@ -23,8 +23,7 @@ const isProduction = process.env.NODE_ENV === "production";
 
 module.exports = {
   input: {
-    app: path.join(PATHS.src, "index.js"),
-    background: path.join(PATHS.src, "background.js")
+    app: path.join(PATHS.src, "index.js")
   },
   plugins: [
     resolve(),
@@ -65,7 +64,7 @@ module.exports = {
   ],
   output: {
     dir: PATHS.build,
-    format: "esm",
+    format: "iife",
     sourcemap: true
   },
   watch: {

@@ -1,8 +1,8 @@
-import './tailwind.css';
+import "./tailwind.css";
 
-import App from './components/App.svelte';
+import App from "./App.svelte";
 
 new App({
-  target: document.getElementById('root'),
+  target: document.getElementById("root"),
   intro: true
 });

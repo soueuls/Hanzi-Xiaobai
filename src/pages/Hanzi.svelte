@@ -1,8 +1,8 @@
 <script>
-  import Header from "./Header.svelte";
-  import Loading from "./Loading.svelte";
-  import HskSelector from "./HskSelector.svelte";
-  import HanziDrawer from "./HanziDrawer.svelte";
+  import Header from "../components/Header.svelte";
+  import Loading from "../components/Loading.svelte";
+  import HskSelector from "../components/HskSelector.svelte";
+  import HanziDrawer from "../components/HanziDrawer.svelte";
 
   let hskChoices;
   let promise = getHskChoices();
@@ -27,9 +27,8 @@
   }
 </script>
 
-<div class="flex flex-col h-screen bg-indigo-600">
-  <Header />
-  <div class="w-full md:w-4/6 h-full mx-auto flex justify-center items-center">
+<div class="flex w-full bg-indigo-600">
+  <div class="w-full md:w-4/6 mx-auto flex justify-center items-center">
     {#await promise}
       <Loading />
     {:then choices}

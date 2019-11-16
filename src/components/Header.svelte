@@ -1,4 +1,5 @@
 <script>
+  import { link } from "svelte-spa-router";
   import Logo from "../assets/logo.png";
 </script>
 
@@ -15,18 +16,21 @@
   }
 </style>
 
-<header class="absolute w-full flex justify-between items-start py-4 px-8">
-  <img class="w-40" src={Logo} alt="Asian girl with Chinese hat" />
+<header
+  class="flex flex-none justify-between items-start bg-indigo-600 py-4 px-8">
+  <a href="#/">
+    <img class="w-40" src={Logo} alt="Asian girl with Chinese hat" />
+  </a>
   <nav>
     <ul class="flex flex-col items-end md:flex-row text-lg font-bold">
       <li>
-        <a class="link" href="#">📚 Resources</a>
+        <a href="#" class="link">📚 Resources</a>
       </li>
       <li>
-        <a class="link md:ml-4" href="#">💌 Get in touch</a>
+        <a href="#" class="link md:ml-4">💌 Get in touch</a>
       </li>
       <li>
-        <a class="link md:ml-4" href="#">👬 Our story</a>
+        <a href="#" class="link md:ml-4">👬 Our story</a>
       </li>
     </ul>
   </nav>
