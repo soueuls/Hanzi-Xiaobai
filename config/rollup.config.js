@@ -4,6 +4,7 @@ const unixify = require("unixify");
 const conditional = require("rollup-plugin-conditional");
 const notify = require("rollup-plugin-notify");
 const resolve = require("rollup-plugin-node-resolve");
+const commonjs = require("rollup-plugin-commonjs");
 
 const copy = require("rollup-plugin-copy");
 const clear = require("rollup-plugin-clear");
@@ -27,6 +28,7 @@ module.exports = {
   },
   plugins: [
     resolve(),
+    commonjs(),
     copy({
       targets: [
         {

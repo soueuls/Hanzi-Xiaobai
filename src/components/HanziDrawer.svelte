@@ -1,17 +1,52 @@
 <script>
+  import { onMount } from "svelte";
+  import HanziWriter from "hanzi-writer";
   import hanziData from "../assets/hanzi.json";
 
   export let hskLevels = [];
-  let hanzi;
+  let writer;
+
+  onMount(() => {
+    writer = HanziWriter.create("hanzi", hanzi.charcter, {
+      width: 200,
+      height: 300,
+      padding: 15,
+      strokeColor: "#4C51BF",
+      radicalColor: "#9AE6B4"
+    });
+
+    setTimeout(() => writer.loopCharacterAnimation(), 2000);
+  });
+
+  function startQuiz() {
+    writer.quiz();
+  }
 
   function randomCharacter() {
     const matchingCharacters = hanziData.filter(line =>
       hskLevels.includes(line.hsk_levl)
     );
-    hanzi =
-      matchingCharacters[Math.floor(Math.random() * matchingCharacters.length)];
+    return matchingCharacters[
+      Math.floor(Math.random() * matchingCharacters.length)
+    ];
   }
-  randomCharacter();
+
+  const hanzi = randomCharacter();
 </script>
 
-<h1 class="text-gray-200 text-2xl">{hanzi.charcter}</h1>
+<div class="w-full flex justify-around items-center">
+  <div class="flex flex-col items-center">
+    <div id="hanzi" class="relative bg-indigo-100 rounded shadow-2xl" />
+    <button
+      on:click={startQuiz}
+      class="px-4 py-2 bg-green-500 text-green-100 rounded-sm shadow-md mt-2
+      hover:bg-green-400 hover:shadow-xl active:shadow-none focus:outline-none
+      focus:shadow-outline">
+      Quizz
+    </button>
+  </div>
+  <div class="flex flex-col items-center">
+    <h1 class="font-semi-bold text-indigo-100 text-2xl">{hanzi.pinyin}</h1>
+    <h2 class="font-hairline italic text-indigo-200">{hanzi.definition}</h2>
+  </div>
+</div>
