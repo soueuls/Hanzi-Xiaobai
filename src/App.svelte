@@ -6,6 +6,7 @@
   import Resources from "./pages/Resources.svelte";
 
   const routes = {
+    "/resources": Resources,
     "*": Hanzi
   };
 </script>

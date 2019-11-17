@@ -34,7 +34,7 @@
   const hanzi = randomCharacter();
 </script>
 
-<div class="w-full flex justify-around items-center">
+<div class="w-full flex justify-around">
   <div class="flex flex-col items-center">
     <div id="hanzi" class="relative bg-indigo-100 rounded shadow-2xl" />
     <button

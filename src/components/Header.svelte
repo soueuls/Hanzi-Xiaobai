@@ -17,7 +17,7 @@
 </style>
 
 <header
-  class="flex flex-col items-center bg-indigo-600 py-4 sm:flex-row
+  class="flex flex-col items-center bg-indigo-600 pt-4 sm:py-2 sm:flex-row
   sm:justify-between sm:items-center sm:px-12">
   <a href="#/">
     <img class="w-24 sm:w-32" src={Logo} alt="Asian girl with Chinese hat" />
