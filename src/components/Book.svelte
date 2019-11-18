@@ -26,12 +26,14 @@
       <h2 class="font-bold text-xl leading-tight text-indigo-800">{title}</h2>
       {#if subtitle}
         <h3
-          class="mt-1 font-light text-xs text-gray-500 uppercase leading-none
+          class="mt-1 font-light text-xs text-gray-500 uppercase leading-snug
           tracking-wide">
           {subtitle}
         </h3>
       {/if}
-      <p class="mt-4 text-sm text-justify text-gray-800 leading-loose">
+      <p
+        class="mt-2 text-base sm:text-sm text-justify text-gray-700 leading-snug
+        sm:leading-loose">
         {@html description}
       </p>
     </div>

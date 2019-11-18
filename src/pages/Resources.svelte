@@ -1,15 +1,20 @@
 <script>
+  import BooksData from "../assets/books";
+  import AppsData from "../assets/apps";
+  import TutorsData from "../assets/tutors";
+
   import Book from "../components/Book.svelte";
-  import BooksData from "../assets/books/data";
+  import MobileApp from "../components/MobileApp.svelte";
+  import Tutor from "../components/Tutor.svelte";
 
   const hanzi = BooksData[0];
 </script>
 
-<div class="w-full py-20 bg-gray-100">
-  <div class="flex flex-col container mx-auto px-6 md:px-12 lg:px-24">
-    <h1 class="font-serif text-center text-indigo-800 text-3xl font-bold">
+<div class="flex flex-col w-full bg-gray-100">
+  <section class="container mx-auto py-20 px-6 md:px-12 lg:px-24">
+    <h2 class="font-serif text-center text-indigo-800 text-3xl font-bold">
       📚 Books
-    </h1>
+    </h2>
     <div class="books">
       {#each BooksData as book}
         <div class="mt-16 first:mt-8">
@@ -17,5 +22,39 @@
         </div>
       {/each}
     </div>
-  </div>
+  </section>
+  <section class="w-full mx-auto py-20 px-6 md:px-12 lg:px-24 bg-indigo-600">
+    <h2 class="font-serif text-center text-indigo-100 text-3xl font-bold">
+      📱 Apps
+    </h2>
+    <div
+      class="flex flex-col items-center md:flex-row md:flex-wrap
+      md:justify-between md:items-start">
+      {#each AppsData as app}
+        <div class="flex-none mt-20 w-8/12 md:w-1/3">
+          <MobileApp {...app} />
+        </div>
+      {/each}
+    </div>
+  </section>
+  <section class="container mx-auto py-20 px-6 md:px-12 lg:px-24">
+    <h2 class="font-serif text-center text-indigo-800 text-3xl font-bold">
+      🎓 Tutoring
+    </h2>
+    <h3
+      class="mt-1 text-center font-light text-sm text-gray-600 uppercase
+      leading-snug tracking-wide">
+      Hire the best teachers to practice your pronounciation and quickly correct
+      your mistakes.
+    </h3>
+    <div
+      class="flex flex-col items-center sm:flex-row sm:flex-wrap
+      sm:justify-between sm:items-start">
+      {#each TutorsData as tutor}
+        <div class="flex-none mt-20 w-8/12 sm:w-1/2 md:w-1/3">
+          <Tutor {...tutor} />
+        </div>
+      {/each}
+    </div>
+  </section>
 </div>
