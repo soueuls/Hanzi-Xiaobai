@@ -13,7 +13,7 @@
 
 <div class="flex flex-col min-h-screen">
   <Header />
-  <div class="flex flex-1">
+  <main class="flex flex-1">
     <Router {routes} />
-  </div>
+  </main>
 </div>
