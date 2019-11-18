@@ -9,10 +9,6 @@
     "48": "icons/icon_48.png",
     "128": "icons/icon_128.png"
   },
-  "background": {
-    "scripts": ["background.js"],
-    "persistent": false
-  },
   "permissions": ["storage"],
   "chrome_url_overrides": {
     "newtab": "index.html"
