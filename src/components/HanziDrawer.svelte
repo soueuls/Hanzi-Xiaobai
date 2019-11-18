@@ -1,6 +1,7 @@
 <script>
   import { onMount } from "svelte";
   import HanziWriter from "hanzi-writer";
+  import Badge from "./Badge.svelte";
   import hanziData from "../assets/hanzi.json";
 
   export let hskLevels = [];
@@ -36,7 +37,19 @@
 
 <div class="w-full flex justify-around">
   <div class="flex flex-col items-center">
-    <div id="hanzi" class="relative bg-indigo-100 rounded shadow-2xl" />
+    <div
+      id="hanzi"
+      class="relative overflow-hidden bg-indigo-100 rounded shadow-2xl">
+      <div class="absolute top-0 right-0">
+        {#if hanzi.stroke_count <= 7}
+          <Badge type="success">easy</Badge>
+        {:else if hanzi.stroke_count <= 11}
+          <Badge type="warning">medium</Badge>
+        {:else}
+          <Badge type="danger">hard</Badge>
+        {/if}
+      </div>
+    </div>
     <button
       on:click={startQuiz}
       class="px-4 py-2 bg-green-500 text-green-100 rounded-sm shadow-md mt-2
