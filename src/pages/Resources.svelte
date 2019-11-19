@@ -1,13 +1,13 @@
 <script>
   import BooksData from "../assets/books";
   import AppsData from "../assets/apps";
+  import PodcastsData from "../assets/podcasts";
   import TutorsData from "../assets/tutors";
 
   import Book from "../components/Book.svelte";
   import MobileApp from "../components/MobileApp.svelte";
+  import Podcast from "../components/Podcast.svelte";
   import Tutor from "../components/Tutor.svelte";
-
-  const hanzi = BooksData[0];
 </script>
 
 <div class="flex flex-col w-full bg-gray-100">
@@ -33,6 +33,19 @@
       {#each AppsData as app}
         <div class="flex-none mt-20 w-8/12 md:w-1/3">
           <MobileApp {...app} />
+        </div>
+      {/each}
+    </div>
+
+    <h2 class="mt-20 font-serif text-center text-indigo-100 text-3xl font-bold">
+      🎧 Podcasts
+    </h2>
+    <div
+      class="flex flex-col items-center md:flex-row md:flex-wrap
+      md:justify-between md:items-start">
+      {#each PodcastsData as podcast}
+        <div class="flex-none mt-10 w-8/12 md:w-1/3">
+          <Podcast {...podcast} />
         </div>
       {/each}
     </div>

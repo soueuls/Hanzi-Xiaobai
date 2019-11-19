@@ -1,7 +1,8 @@
 <script>
   export let icon;
   export let image;
-  export let title;
+  export let name;
+  export let plan;
   export let description;
 </script>
 
@@ -24,13 +25,20 @@
   <img
     class="icon w-16 object-cover rounded-full absolute z-10 -mt-8"
     src={icon}
-    alt="Icon of {title}" />
+    alt="Icon of {name}" />
   <img
     class="w-64 object-cover rounded shadow-md"
     src={image}
-    alt="Screenshot of {title}" />
-  <h3 class="mt-2 font-normal text-xl leading-tight text-indigo-100">
-    {title}
-  </h3>
+    alt="Screenshot of {name}" />
+  <div class="mt-3 flex justify-center items-center">
+    <h2 class="font-normal text-center text-xl leading-tight text-indigo-100">
+      {name}
+    </h2>
+    <div
+      class="ml-3 px-2 text-xs uppercase tracking-wide font-bold bg-indigo-200
+      text-indigo-800 rounded-lg shadow-none">
+      {plan}
+    </div>
+  </div>
   <p class="mt-1 text-justify md:text-center text-indigo-200">{description}</p>
 </div>
