@@ -15,7 +15,7 @@
   }
 </style>
 
-<form class="newsletter bg-indigo-600 px-8 py-6 sm:px-24 sm:py-24">
+<form class="newsletter bg-gradient-br-indigo px-8 py-6 sm:px-24 sm:py-24">
   <h2 class="text-gray-100 text-lg md:text-3xl font-bold">
     Join our newsletter
   </h2>

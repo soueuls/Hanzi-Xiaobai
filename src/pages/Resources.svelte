@@ -24,7 +24,8 @@
       {/each}
     </div>
   </section>
-  <section class="w-full mx-auto py-20 px-6 md:px-12 lg:px-24 bg-indigo-600">
+  <section
+    class="w-full mx-auto py-20 px-6 md:px-12 lg:px-24 bg-gradient-br-indigo">
     <h2 class="font-serif text-center text-indigo-100 text-3xl font-bold">
       📱 Apps
     </h2>

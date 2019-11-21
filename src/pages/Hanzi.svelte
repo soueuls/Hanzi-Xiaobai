@@ -27,7 +27,7 @@
   }
 </script>
 
-<div class="flex w-full bg-indigo-600">
+<div class="flex w-full bg-gradient-r-indigo">
   <div class="w-full md:w-4/6 mx-auto flex justify-center items-center">
     {#await promise}
       <Loading />
