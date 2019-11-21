@@ -1,7 +1,7 @@
 {
-  "name": "chinese",
-  "version": "0.1.0",
-  "description": "My Chrome Extension",
+  "name": "hanzi-xiaobai",
+  "version": "0.9.0",
+  "description": "Learning Chinese one tab at a time",
   "private": true,
   "scripts": {
     "start": "cross-env NODE_ENV=development rollup --config config/rollup.config.js --watch",
