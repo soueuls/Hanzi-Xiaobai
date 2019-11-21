@@ -8,10 +8,11 @@
   import MobileApp from "../components/MobileApp.svelte";
   import Podcast from "../components/Podcast.svelte";
   import Tutor from "../components/Tutor.svelte";
+  import Newsletter from "../components/Newsletter.svelte";
 </script>
 
 <div class="flex flex-col w-full bg-gray-100">
-  <section class="container mx-auto py-20 px-6 md:px-12 lg:px-24">
+  <section class="w-full mx-auto py-20 px-6 md:px-12 lg:px-24">
     <h2 class="font-serif text-center text-indigo-800 text-3xl font-bold">
       📚 Books
     </h2>
@@ -50,7 +51,7 @@
       {/each}
     </div>
   </section>
-  <section class="container mx-auto py-20 px-6 md:px-12 lg:px-24">
+  <section class="w-full mx-auto py-20 px-6 md:px-12 lg:px-24">
     <h2 class="font-serif text-center text-indigo-800 text-3xl font-bold">
       🎓 Tutoring
     </h2>
@@ -69,5 +70,9 @@
         </div>
       {/each}
     </div>
+  </section>
+
+  <section class="w-full sm:px-4 sm:pb-20 md:px-12 lg:px-24">
+    <Newsletter />
   </section>
 </div>
