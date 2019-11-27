@@ -29,12 +29,6 @@
       <li>
         <a href="/resources" class="link" use:link>📚 Resources</a>
       </li>
-      <li>
-        <a href="#" class="link sm:ml-4">💌 Get in touch</a>
-      </li>
-      <li>
-        <a href="#" class="link sm:ml-4">👬 Our story</a>
-      </li>
     </ul>
   </nav>
 </header>
