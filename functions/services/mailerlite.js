@@ -1,38 +1,36 @@
 const https = require("https");
+const cors = require("cors")({ origin: true });
 const functions = require("firebase-functions");
 
 exports.addSubscriberToNewsletter = functions.https.onRequest((req, res) => {
-  const { name, email } = req.body;
+  cors(req, res, () => {
+    const data = JSON.stringify(req.body);
 
-  const data = "";
-  const request = https.request(
-    "https://api.mailerlite.com/api/v2/groups/72265246/subscribers",
-    {
-      method: "post",
+    const options = {
+      method: "POST",
       headers: {
         "Content-Type": "application/json",
+        "Content-Length": Buffer.byteLength(data),
         "X-MailerLite-ApiKey": functions.config().mailerlite.key
       }
-    },
-    response => {
-      response.setEncoding("utf8");
-      response.on("data", chunk => {
-        data += chunk;
-      });
-      response.on("end", () => {
-        res.send(data);
-      });
-    }
-  );
+    };
 
-  request.on("error", error => {
-    res.status(error.code).send(error.message);
+    let body = [];
+    const request = https.request(
+      "https://api.mailerlite.com/api/v2/groups/72265246/subscribers",
+      options,
+      response => {
+        response.on("data", chunk => body.push(chunk));
+        response.on("end", () => {
+          res.status(response.statusCode).send(Buffer.concat(body).toString());
+        });
+      }
+    );
+    request.on("error", () => {
+      res.status(500).end();
+    });
+
+    request.write(data);
+    request.end();
   });
-
-  request.write(
-    JSON.stringify({
-      name,
-      email
-    })
-  );
 });
