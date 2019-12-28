@@ -9,7 +9,6 @@
   function addSubscriberToNewsletter() {
     return fetch(functions.addSubscriberToNewsletter, {
       method: "POST",
-      mode: "cors",
       cache: "no-cache",
       headers: {
         "Content-Type": "application/json"
