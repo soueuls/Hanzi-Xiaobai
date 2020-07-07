@@ -8,7 +8,7 @@
   let writer;
 
   onMount(() => {
-    writer = HanziWriter.create("hanzi", hanzi.charcter, {
+    writer = HanziWriter.create("hanzi", hanzi.character, {
       width: 200,
       height: 300,
       padding: 15,
@@ -32,14 +32,28 @@
     ];
   }
 
+  function playSound(mp3Code) {
+    const audio = new Audio(
+      `https://raw.githubusercontent.com/soueuls/Hanzi-Xiaobai/master/src/assets/sounds/${mp3Code}.mp3`
+    );
+    audio.play();
+  }
+
   const hanzi = randomCharacter();
 </script>
 
-<div class="w-full flex justify-around">
+<div class="flex justify-around">
   <div class="flex flex-col items-center">
     <div
       id="hanzi"
       class="relative overflow-hidden bg-indigo-100 rounded shadow-2xl">
+      {#if hanzi.audio}
+        <div class="absolute top-0 left-0 mt-4 ml-4">
+          <button type="button" on:click={() => playSound(hanzi.audio)}>
+            Jouer
+          </button>
+        </div>
+      {/if}
       <div class="absolute top-0 right-0">
         {#if hanzi.stroke_count <= 7}
           <Badge type="success">easy</Badge>
@@ -58,8 +72,18 @@
       Quizz
     </button>
   </div>
-  <div class="flex flex-col items-center">
-    <h1 class="font-semi-bold text-indigo-100 text-2xl">{hanzi.pinyin}</h1>
-    <h2 class="font-hairline italic text-indigo-200">{hanzi.definition}</h2>
+  <div class="px-12 flex flex-col text-indigo-200">
+    <div class="text-center">
+      <h1 class="font-semi-bold text-indigo-100 text-2xl">{hanzi.pinyin}</h1>
+      <h2 class="font-hairline italic">{hanzi.definition}</h2>
+    </div>
+    {#each hanzi.sentences as sentence}
+      <div class="mt-4">
+        <p>
+          {@html sentence[0].replace(hanzi.character, `<span class="text-lg text-green-600 font-bold">${hanzi.character}</span>`)}
+        </p>
+        <p>{sentence[1]}</p>
+      </div>
+    {/each}
   </div>
 </div>

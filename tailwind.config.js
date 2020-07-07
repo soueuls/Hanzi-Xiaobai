@@ -1,18 +1,18 @@
 module.exports = {
   theme: {
     extend: {},
-    gradients: theme => ({
-      indigo: [theme("colors.indigo.600"), theme("colors.indigo.800")]
+    gradients: (theme) => ({
+      indigo: [theme("colors.indigo.600"), theme("colors.indigo.800")],
     }),
-    linearGradients: theme => ({
-      colors: theme("gradients")
+    linearGradients: (theme) => ({
+      colors: theme("gradients"),
     }),
-    radialGradients: theme => ({
-      colors: theme("gradients")
+    radialGradients: (theme) => ({
+      colors: theme("gradients"),
     }),
-    conicGradients: theme => ({
-      colors: theme("gradients")
-    })
+    conicGradients: (theme) => ({
+      colors: theme("gradients"),
+    }),
   },
   variants: [
     "responsive",
@@ -22,7 +22,7 @@ module.exports = {
     "focus",
     "active",
     "visited",
-    "disabled"
+    "disabled",
   ],
-  plugins: [require("tailwindcss-gradients")()]
+  plugins: [require("tailwindcss-gradients")()],
 };
