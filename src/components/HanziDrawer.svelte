@@ -42,7 +42,9 @@
   const hanzi = randomCharacter();
 </script>
 
-<div class="flex justify-around">
+<div
+  class="py-6 flex flex-col items-center md:flex-row md:justify-around
+  md:items-start">
   <div class="flex flex-col items-center">
     <div
       id="hanzi"
@@ -73,12 +75,12 @@
     </button>
   </div>
   <div class="px-12 flex flex-col text-indigo-200">
-    <div class="text-center">
+    <div class="mt-6 md:mt-0 text-center">
       <h1 class="font-semi-bold text-indigo-100 text-2xl">{hanzi.pinyin}</h1>
       <h2 class="font-hairline italic">{hanzi.definition}</h2>
     </div>
     {#each hanzi.sentences as sentence}
-      <div class="mt-4">
+      <div class="mt-4 text-center md:text-left">
         <p>
           {@html sentence[0].replace(hanzi.character, `<span class="text-lg text-green-600 font-bold">${hanzi.character}</span>`)}
         </p>
