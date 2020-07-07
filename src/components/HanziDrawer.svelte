@@ -50,9 +50,30 @@
       id="hanzi"
       class="relative overflow-hidden bg-indigo-100 rounded shadow-2xl">
       {#if hanzi.audio}
-        <div class="absolute top-0 left-0 mt-4 ml-4">
+        <div class="absolute top-0 left-0 mt-3 ml-3">
           <button type="button" on:click={() => playSound(hanzi.audio)}>
-            Jouer
+            <svg
+              class="w-6 h-6 fill-current text-indigo-600"
+              enable-background="new 0 0 512 512"
+              viewBox="0 0 512 512"
+              xmlns="http://www.w3.org/2000/svg">
+              <g>
+                <path
+                  d="m421 255h-30c0 74.439-60.561 135-135
+                  135s-135-60.561-135-135h-30c0 85.925 66.023 156.707 150
+                  164.311v62.689h-105v30h240v-30h-105v-62.689c83.977-7.604
+                  150-78.386 150-164.311z" />
+                <path
+                  d="m256 360c57.897 0 105-47.103
+                  105-105v-150c0-57.897-47.103-105-105-105s-105 47.103-105
+                  105v150c0 57.897 47.103 105 105 105zm0-330c36.219 0 66.522
+                  25.808 73.491
+                  60h-43.491v30h45v45h-45v30h45v45h-45v30h43.491c-6.968
+                  34.192-37.272 60-73.491
+                  60s-66.522-25.808-73.491-60h43.491v-30h-45v-45h45v-30h-45v-45h45v-30h-43.491c6.969-34.192
+                  37.272-60 73.491-60z" />
+              </g>
+            </svg>
           </button>
         </div>
       {/if}
