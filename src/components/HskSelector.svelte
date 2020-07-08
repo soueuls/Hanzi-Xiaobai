@@ -9,7 +9,7 @@
 
   function submit() {
     if (choices.length > 0) {
-      dispatch("choice", choices);
+      dispatch("submit", choices);
     }
   }
 </script>

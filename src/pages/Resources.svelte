@@ -8,24 +8,22 @@
   import MobileApp from "../components/MobileApp.svelte";
   import Podcast from "../components/Podcast.svelte";
   import Tutor from "../components/Tutor.svelte";
-  import Newsletter from "../components/Newsletter.svelte";
 </script>
 
-<div class="flex flex-col w-full bg-gray-100">
-  <section class="w-full mx-auto py-20 px-6 md:px-12 lg:px-24">
+<div class="bg-gray-100">
+  <section class="px-6 py-12 md:px-12 lg:px-24">
     <h2 class="font-serif text-center text-indigo-800 text-3xl font-bold">
       📚 Books
     </h2>
     <div class="books">
       {#each BooksData as book}
-        <div class="mt-16 first:mt-8">
+        <div class="mt-16">
           <Book {...book} />
         </div>
       {/each}
     </div>
   </section>
-  <section
-    class="w-full mx-auto py-20 px-6 md:px-12 lg:px-24 bg-gradient-br-indigo">
+  <section class="bg-gradient-br-indigo px-6 py-12 md:px-12 lg:px-24">
     <h2 class="font-serif text-center text-indigo-100 text-3xl font-bold">
       📱 Apps
     </h2>
@@ -52,7 +50,7 @@
       {/each}
     </div>
   </section>
-  <section class="w-full mx-auto py-20 px-6 md:px-12 lg:px-24">
+  <section class="px-6 py-12 md:px-12 lg:px-24">
     <h2 class="font-serif text-center text-indigo-800 text-3xl font-bold">
       🎓 Tutoring
     </h2>
@@ -71,9 +69,5 @@
         </div>
       {/each}
     </div>
-  </section>
-
-  <section class="w-full sm:px-4 sm:pb-20 md:px-12 lg:px-24">
-    <Newsletter />
   </section>
 </div>
