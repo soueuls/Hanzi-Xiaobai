@@ -43,9 +43,9 @@
 </script>
 
 <div
-  class="py-6 flex flex-col items-center md:flex-row md:justify-around
-  md:items-start">
-  <div class="flex flex-col items-center">
+  class="py-12 flex flex-col items-center md:flex-row md:justify-center
+  md:space-x-8 md:items-start">
+  <div class="flex-none flex flex-col items-center">
     <div
       id="hanzi"
       class="relative overflow-hidden bg-indigo-100 rounded shadow-2xl">
@@ -95,7 +95,7 @@
       Quizz
     </button>
   </div>
-  <div class="px-12 flex flex-col text-indigo-200">
+  <div class="w-2/5 flex flex-col text-indigo-200">
     <div class="mt-6 md:mt-0 text-center">
       <h1 class="font-semi-bold text-indigo-100 text-2xl">{hanzi.pinyin}</h1>
       <h2 class="font-hairline italic">{hanzi.definition}</h2>
