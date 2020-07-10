@@ -16,7 +16,7 @@
   }
 </style>
 
-<a class="book" href="#">
+<div class="book">
   <div class="flex justify-between items-start">
     <img
       class="w-32 h-48 sm:w-48 sm:h-64 object-cover shadow-lg rounded"
@@ -38,4 +38,4 @@
       </p>
     </div>
   </div>
-</a>
+</div>

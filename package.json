@@ -1,6 +1,6 @@
 {
   "name": "hanzi-xiaobai",
-  "version": "0.9.0",
+  "version": "1.0.0",
   "description": "Learning Chinese one tab at a time",
   "private": true,
   "scripts": {
